@@ -1552,7 +1552,7 @@
     <section id="reservations" class="container fade-up">
         <h2 class="draw-line">Reserve A Table</h2>
         <!-- CONNECT TO YOUR BOOKING SYSTEM HERE -->
-        <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Reservation system mocked.');">
+        <form class="rsvp-form" id="rsvp-form">
             <div class="input-group">
                 <input type="text" id="r_name" required>
                 <label for="r_name">Full Name</label>
@@ -1828,6 +1828,45 @@
                 carouselTimer = setInterval(() => showSlide((currentSlide + 1) % slides.length), 4000);
             });
         });
+
+        // TASK 9: Reservations Zapier Webhook
+        const rsvpForm = document.getElementById('rsvp-form');
+        const rsvpWebhookUrl = 'https://hooks.zapier.com/hooks/catch/26220360/ucvlyhf/';
+
+        if (rsvpForm) {
+            rsvpForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const submitBtn = rsvpForm.querySelector('.btn-submit');
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.textContent = 'Requesting...';
+                submitBtn.disabled = true;
+
+                const formData = new URLSearchParams();
+                formData.append('name', document.getElementById('r_name').value);
+                formData.append('email', document.getElementById('r_email').value);
+                formData.append('date', document.getElementById('r_date').value);
+                formData.append('time', document.getElementById('r_time').value);
+                formData.append('guests', document.getElementById('r_guests').value);
+                formData.append('requests', document.getElementById('r_requests').value);
+
+                fetch(rsvpWebhookUrl, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    mode: 'no-cors'
+                }).then(() => {
+                    alert('Reservation requested successfully! We will contact you shortly to confirm.');
+                    rsvpForm.reset();
+                }).catch(err => {
+                    console.error('Reservation Error:', err);
+                    alert('Thank you! If there are no network issues, your request was received.');
+                }).finally(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            });
+        }
 
         // TASK 13: Supabase Modal Logic (Reverted)
         try {
