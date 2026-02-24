@@ -1412,10 +1412,10 @@
         <div class="menu-toggle" id="menu-toggle">☰</div>
         <nav>
             <ul id="nav-menu">
-                <li><a href="#hero">Accueil</a></li>
-                <li><a href="#about">Histoire</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#reservations">Réservations</a></li>
+                <li><a href="#reservations">Reservations</a></li>
                 <li><button class="btn-login" id="nav-login-btn">Login</button></li>
             </ul>
         </nav>
@@ -1438,7 +1438,7 @@
         <div class="about-grid">
             <div class="placeholder-chef-image slide-left" alt="Chef preparing fine french food"></div>
             <div class="about-text slide-right">
-                <h2 class="draw-line">Notre Histoire</h2>
+                <h2 class="draw-line">Our Story</h2>
                 <p>Welcome to a sanctuary where taste and atmosphere intertwine seamlessly. At À la Carté, we believe
                     every meal is a symphony of flavors, crafted with passion and precision.</p>
                 <p>Nestled in the heart of culinary tradition, our philosophy marries timeless Parisian elegance with
@@ -1453,32 +1453,54 @@
 
     <!-- TASK 5: CULINARY CREATIONS -->
     <section id="menu" class="container fade-up">
-        <h2 class="draw-line">Nos Créations</h2>
+        <h2 class="draw-line">Our Creations</h2>
         <div class="menu-grid">
             <div class="dish-card fade-up">
-                <div class="dish-img-placeholder c-bouillabaisse" role="img" aria-label="Bouillabaisse"></div>
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+                    alt="Bouillabaisse" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Bouillabaisse</h3>
                 <p class="dish-desc">A fragrant Provençal seafood stew bathed in saffron and fresh local herbs.</p>
                 <div class="dish-price">€42</div>
             </div>
             <div class="dish-card fade-up" style="transition-delay: 0.1s;">
-                <div class="dish-img-placeholder c-coq" role="img" aria-label="Coq au Vin"></div>
+                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80"
+                    alt="Coq au Vin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Coq au Vin</h3>
                 <p class="dish-desc">Classic rustic chicken braised to perfection in rich Burgundian wine.</p>
                 <div class="dish-price">€38</div>
             </div>
             <div class="dish-card fade-up" style="transition-delay: 0.2s;">
-                <div class="dish-img-placeholder c-creme" role="img" aria-label="Crème Brûlée"></div>
+                <img src="https://images.unsplash.com/photo-1472555794301-77353b152fb7?auto=format&fit=crop&w=800&q=80"
+                    alt="Crème Brûlée" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Crème Brûlée</h3>
                 <p class="dish-desc">Velvety vanilla bean custard beneath a delicate layer of caramelized sugar.</p>
                 <div class="dish-price">€18</div>
             </div>
             <div class="dish-card fade-up" style="transition-delay: 0.3s;">
-                <div class="dish-img-placeholder c-tatin" role="img" aria-label="Tarte Tatin"></div>
+                <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80"
+                    alt="Tarte Tatin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Tarte Tatin</h3>
                 <p class="dish-desc">An elegant upside-down caramelized apple pastry, served warm with a hint of
                     cinnamon.</p>
                 <div class="dish-price">€16</div>
+            </div>
+
+            <div class="dish-card fade-up" style="transition-delay: 0.4s;">
+                <img src="./images/boeuf_bourguignon.png" alt="Boeuf Bourguignon" class="dish-img-placeholder"
+                    style="object-fit: cover; background: none;">
+                <h3>Boeuf Bourguignon</h3>
+                <p class="dish-desc">A rich and hearty beef stew braised in red wine with pearl onions, mushrooms, and
+                    bacon lardons.</p>
+                <div class="dish-price">€45</div>
+            </div>
+
+            <div class="dish-card fade-up" style="transition-delay: 0.5s;">
+                <img src="./images/ratatouille.png" alt="Ratatouille" class="dish-img-placeholder"
+                    style="object-fit: cover; background: none;">
+                <h3>Ratatouille</h3>
+                <p class="dish-desc">A vibrant, thinly sliced vegetable medley beautifully layered and baked to
+                    perfection with aromatic herbs.</p>
+                <div class="dish-price">€28</div>
             </div>
         </div>
     </section>
@@ -1490,7 +1512,7 @@
                 <div class="chef-img-box" role="img" aria-label="Chef Antoine Dubois"></div>
             </div>
             <div class="chef-text slide-right">
-                <h2>Rencontrez Le Chef</h2>
+                <h2>Meet the Chef</h2>
                 <h3>Chef Antoine Dubois</h3>
                 <p>Born in Lyon, the gastronomy capital of the world, Chef Antoine brings three decades of
                     Michelin-starred expertise back to the roots of honest, deeply flavorful French cooking. His
@@ -1502,23 +1524,23 @@
 
     <!-- TASK 7: WINE PAIRING -->
     <section id="wine" class="container fade-up">
-        <h2 class="draw-line">Accords Mets & Vins</h2>
+        <h2 class="draw-line">Wine & Food Pairings</h2>
         <div class="wine-grid">
             <div class="wine-card">
                 <div class="wine-icon">🍷</div>
-                <h3>Avec Coq au Vin</h3>
+                <h3>With Coq au Vin</h3>
                 <div class="wine-name">Pinot Noir, Burgundy 2018</div>
                 <p class="wine-note">Earthy cherry notes that perfectly complement the rich, rustic braise.</p>
             </div>
             <div class="wine-card">
                 <div class="wine-icon">🥂</div>
-                <h3>Avec Bouillabaisse</h3>
+                <h3>With Bouillabaisse</h3>
                 <div class="wine-name">Rosé de Provence</div>
                 <p class="wine-note">Crisp, dry, and mineral-driven to slice through the saffron-infused broth.</p>
             </div>
             <div class="wine-card">
                 <div class="wine-icon">🍾</div>
-                <h3>Avec Crème Brûlée</h3>
+                <h3>With Crème Brûlée</h3>
                 <div class="wine-name">Château d'Yquem Sauternes</div>
                 <p class="wine-note">A golden, honeyed companion that matches the richness of the vanilla custard.</p>
             </div>
@@ -1565,7 +1587,7 @@
 
     <!-- TASK 9: RESERVATIONS -->
     <section id="reservations" class="container fade-up">
-        <h2 class="draw-line">Réserver Une Table</h2>
+        <h2 class="draw-line">Reserve A Table</h2>
         <!-- CONNECT TO YOUR BOOKING SYSTEM HERE -->
         <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Reservation system mocked.');">
             <div class="input-group">
@@ -1599,14 +1621,14 @@
     <!-- TASK 10: NEWSLETTER -->
     <section id="newsletter">
         <div class="container news-content fade-up">
-            <h2>Rejoignez Notre Table</h2>
+            <h2>Join Our Table</h2>
             <p>Be the first to receive our seasonal menus and exclusive invitations</p>
             <!-- PASTE YOUR ZAPIER WEBHOOK URL HERE -->
             <form class="news-form" method="POST" action="#"
                 onsubmit="event.preventDefault(); alert('Zapier Webhook Mocked');">
                 <input type="text" name="first_name" placeholder="First Name" required>
                 <input type="email" name="email" placeholder="Email Address" required>
-                <button type="submit">S'abonner</button>
+                <button type="submit">Subscribe</button>
             </form>
         </div>
     </section>
@@ -1622,16 +1644,16 @@
                 </ul>
                 <table class="hours-table">
                     <tr>
-                        <td>Lundi - Jeudi</td>
+                        <td>Monday - Thursday</td>
                         <td>18:00 - 23:00</td>
                     </tr>
                     <tr>
-                        <td>Vendredi - Samedi</td>
+                        <td>Friday - Saturday</td>
                         <td>18:00 - 00:00</td>
                     </tr>
                     <tr>
-                        <td>Dimanche</td>
-                        <td>Fermé</td>
+                        <td>Sunday</td>
+                        <td>Closed</td>
                     </tr>
                 </table>
             </div>
@@ -1648,21 +1670,21 @@
             <h2>À la Carté</h2>
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Notre Maison</h4>
+                    <h4>About Us</h4>
                     <p style="font-size: 1.1rem; line-height: 1.6;">Dedicated to the art of fine dining, bringing the
                         romance of Parisian cuisine to your plate with unparalleled elegance.</p>
                 </div>
                 <div class="footer-col" style="text-align: center;">
-                    <h4>Liens Rapides</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">Histoire</a></li>
+                        <li><a href="#about">Our Story</a></li>
                         <li><a href="#menu">Menu</a></li>
-                        <li><a href="#reservations">Réservations</a></li>
-                        <li><a href="#chef">Le Chef</a></li>
+                        <li><a href="#reservations">Reservations</a></li>
+                        <li><a href="#chef">The Chef</a></li>
                     </ul>
                 </div>
                 <div class="footer-col" style="display: flex; flex-direction: column; align-items: flex-end;">
-                    <h4>Suivez-nous</h4>
+                    <h4>Follow Us</h4>
                     <div class="social-icons">
                         <a href="#">ⓕ</a> <!-- Facebook -->
                         <a href="#">ⓘ</a> <!-- Instagram -->
@@ -1671,7 +1693,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2025 À la Carté. Tous droits réservés.
+                &copy; 2025 À la Carté. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1681,24 +1703,24 @@
         <div class="auth-modal">
             <div class="modal-close" id="modal-close">&times;</div>
             <div class="auth-tabs">
-                <div class="auth-tab active" data-tab="login">Se Connecter</div>
-                <div class="auth-tab" data-tab="signup">S'inscrire</div>
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
             </div>
             <!-- Login Form -->
             <form id="form-login" class="auth-form active">
                 <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Mot de passe" required>
-                <div class="forgot-link">Mot de passe oublié?</div>
-                <button type="submit">Se Connecter</button>
+                <input type="password" placeholder="Password" required>
+                <div class="forgot-link">Forgot password?</div>
+                <button type="submit">Login</button>
                 <div class="auth-msg" id="login-msg"></div>
             </form>
             <!-- Signup Form -->
             <form id="form-signup" class="auth-form">
-                <input type="text" placeholder="Nom complet" required>
+                <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Mot de passe" required>
-                <input type="password" placeholder="Confirmer le mot de passe" required>
-                <button type="submit">S'inscrire</button>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
                 <div class="auth-msg" id="signup-msg"></div>
             </form>
             <!-- PASTE YOUR SUPABASE URL HERE -->
@@ -1846,17 +1868,17 @@
         document.getElementById('form-login').addEventListener('submit', (e) => {
             e.preventDefault();
             const msg = document.getElementById('login-msg');
-            msg.textContent = "Tentative de connexion...";
+            msg.textContent = "Attempting to login...";
             msg.className = "auth-msg msg-success";
-            setTimeout(() => { msg.textContent = "Connecté avec succès!"; }, 1500);
+            setTimeout(() => { msg.textContent = "Successfully logged in!"; }, 1500);
         });
 
         document.getElementById('form-signup').addEventListener('submit', (e) => {
             e.preventDefault();
             const msg = document.getElementById('signup-msg');
-            msg.textContent = "Création du compte...";
+            msg.textContent = "Creating account...";
             msg.className = "auth-msg msg-success";
-            setTimeout(() => { msg.textContent = "Compte créé! Vérifiez votre email."; }, 1500);
+            setTimeout(() => { msg.textContent = "Account created! Please check your email."; }, 1500);
         });
 
         // TASK 14: Dark Mode Toggle
