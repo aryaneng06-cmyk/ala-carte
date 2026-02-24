@@ -1842,19 +1842,18 @@
                 submitBtn.textContent = 'Requesting...';
                 submitBtn.disabled = true;
 
-                const formData = new URLSearchParams();
-                formData.append('name', document.getElementById('r_name').value);
-                formData.append('email', document.getElementById('r_email').value);
-                formData.append('date', document.getElementById('r_date').value);
-                formData.append('time', document.getElementById('r_time').value);
-                formData.append('guests', document.getElementById('r_guests').value);
-                formData.append('requests', document.getElementById('r_requests').value);
+                const payload = {
+                    name: document.getElementById('r_name').value,
+                    email: document.getElementById('r_email').value,
+                    date: document.getElementById('r_date').value,
+                    time: document.getElementById('r_time').value,
+                    guests: document.getElementById('r_guests').value,
+                    requests: document.getElementById('r_requests').value
+                };
 
                 fetch(rsvpWebhookUrl, {
                     method: 'POST',
-                    body: formData,
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    mode: 'no-cors'
+                    body: JSON.stringify(payload)
                 }).then(() => {
                     alert('Reservation requested successfully! We will contact you shortly to confirm.');
                     rsvpForm.reset();
