@@ -538,10 +538,67 @@
             display: inline-block;
         }
 
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            /* Space for scrollbar and underline */
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .menu-tabs::-webkit-scrollbar-thumb {
+            background-color: var(--border-gold);
+            border-radius: 2px;
+        }
+
+        .menu-tab {
+            background: none;
+            border: none;
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .menu-tab.active,
+        .menu-tab:hover {
+            opacity: 1;
+        }
+
+        .menu-tab.active::after {
+            width: 100%;
+        }
+
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
+            transition: opacity 0.4s ease;
         }
 
         @media (max-width: 768px) {
@@ -578,6 +635,16 @@
         }
 
         /* Gradient Color representations */
+        .drink-placeholder {
+            background: linear-gradient(135deg, #f5e1a4, #d4af37);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
         .c-bouillabaisse {
             background: linear-gradient(135deg, #d35400, #e67e22);
         }
@@ -1417,38 +1484,40 @@
     <!-- TASK 5: CULINARY CREATIONS -->
     <section id="menu" class="container fade-up">
         <h2 class="draw-line">Our Creations</h2>
-        <div class="menu-grid">
-            <div class="dish-card fade-up">
+
+        <!-- MENU TABS -->
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-target="entrees">Entrées</button>
+            <button class="menu-tab" data-target="plats">Plats Principaux</button>
+            <button class="menu-tab" data-target="desserts">Desserts</button>
+            <button class="menu-tab" data-target="boissons">Boissons</button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid">
+            <div class="dish-card fade-up" data-category="entrees">
                 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
                     alt="Bouillabaisse" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Bouillabaisse</h3>
                 <p class="dish-desc">A fragrant Provençal seafood stew bathed in saffron and fresh local herbs.</p>
                 <div class="dish-price">€42</div>
             </div>
-            <div class="dish-card fade-up" style="transition-delay: 0.1s;">
+            <div class="dish-card fade-up" data-category="entrees" style="transition-delay: 0.5s;">
+                <img src="./images/ratatouille.png" alt="Ratatouille" class="dish-img-placeholder"
+                    style="object-fit: cover; background: none;">
+                <h3>Ratatouille</h3>
+                <p class="dish-desc">A vibrant, thinly sliced vegetable medley beautifully layered and baked to
+                    perfection with aromatic herbs.</p>
+                <div class="dish-price">€28</div>
+            </div>
+
+            <div class="dish-card fade-up" data-category="plats" style="transition-delay: 0.1s; display: none;">
                 <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80"
                     alt="Coq au Vin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Coq au Vin</h3>
                 <p class="dish-desc">Classic rustic chicken braised to perfection in rich Burgundian wine.</p>
                 <div class="dish-price">€38</div>
             </div>
-            <div class="dish-card fade-up" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1472555794301-77353b152fb7?auto=format&fit=crop&w=800&q=80"
-                    alt="Crème Brûlée" class="dish-img-placeholder" style="object-fit: cover; background: none;">
-                <h3>Crème Brûlée</h3>
-                <p class="dish-desc">Velvety vanilla bean custard beneath a delicate layer of caramelized sugar.</p>
-                <div class="dish-price">€18</div>
-            </div>
-            <div class="dish-card fade-up" style="transition-delay: 0.3s;">
-                <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80"
-                    alt="Tarte Tatin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
-                <h3>Tarte Tatin</h3>
-                <p class="dish-desc">An elegant upside-down caramelized apple pastry, served warm with a hint of
-                    cinnamon.</p>
-                <div class="dish-price">€16</div>
-            </div>
-
-            <div class="dish-card fade-up" style="transition-delay: 0.4s;">
+            <div class="dish-card fade-up" data-category="plats" style="transition-delay: 0.4s; display: none;">
                 <img src="./images/boeuf_bourguignon.png" alt="Boeuf Bourguignon" class="dish-img-placeholder"
                     style="object-fit: cover; background: none;">
                 <h3>Boeuf Bourguignon</h3>
@@ -1457,13 +1526,45 @@
                 <div class="dish-price">€45</div>
             </div>
 
-            <div class="dish-card fade-up" style="transition-delay: 0.5s;">
-                <img src="./images/ratatouille.png" alt="Ratatouille" class="dish-img-placeholder"
-                    style="object-fit: cover; background: none;">
-                <h3>Ratatouille</h3>
-                <p class="dish-desc">A vibrant, thinly sliced vegetable medley beautifully layered and baked to
-                    perfection with aromatic herbs.</p>
-                <div class="dish-price">€28</div>
+            <div class="dish-card fade-up" data-category="desserts" style="transition-delay: 0.2s; display: none;">
+                <img src="https://images.unsplash.com/photo-1472555794301-77353b152fb7?auto=format&fit=crop&w=800&q=80"
+                    alt="Crème Brûlée" class="dish-img-placeholder" style="object-fit: cover; background: none;">
+                <h3>Crème Brûlée</h3>
+                <p class="dish-desc">Velvety vanilla bean custard beneath a delicate layer of caramelized sugar.</p>
+                <div class="dish-price">€18</div>
+            </div>
+            <div class="dish-card fade-up" data-category="desserts" style="transition-delay: 0.3s; display: none;">
+                <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80"
+                    alt="Tarte Tatin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
+                <h3>Tarte Tatin</h3>
+                <p class="dish-desc">An elegant upside-down caramelized apple pastry, served warm with a hint of
+                    cinnamon.</p>
+                <div class="dish-price">€16</div>
+            </div>
+
+            <div class="dish-card fade-up" data-category="boissons" style="display: none;">
+                <div class="dish-img-placeholder drink-placeholder">
+                    ⚗
+                </div>
+                <h3>Bordeaux Rouge 2019</h3>
+                <p class="dish-desc">A full bodied red with notes of dark fruit and oak</p>
+                <div class="dish-price">€18</div>
+            </div>
+            <div class="dish-card fade-up" data-category="boissons" style="display: none;">
+                <div class="dish-img-placeholder drink-placeholder">
+                    ⚗
+                </div>
+                <h3>Champagne Brut NV</h3>
+                <p class="dish-desc">Crisp and celebratory with fine persistent bubbles</p>
+                <div class="dish-price">€22</div>
+            </div>
+            <div class="dish-card fade-up" data-category="boissons" style="display: none;">
+                <div class="dish-img-placeholder drink-placeholder">
+                    ⚗
+                </div>
+                <h3>Eau Minérale</h3>
+                <p class="dish-desc">Still or sparkling Evian served ice cold</p>
+                <div class="dish-price">€6</div>
             </div>
         </div>
     </section>
@@ -1795,6 +1896,43 @@
                 }
             }, 80);
         }, 3500); // Start after title finishes
+
+        // TASK 5: Menu Tab System
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuCards = document.querySelectorAll('#menu-grid .dish-card');
+        const menuGrid = document.getElementById('menu-grid');
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab styling
+                menuTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const targetCategory = tab.dataset.target;
+
+                // Fade out
+                menuGrid.style.opacity = '0';
+
+                // Wait for fade out, then swap display, then fade in
+                setTimeout(() => {
+                    menuCards.forEach(card => {
+                        if (targetCategory === 'all' || card.dataset.category === targetCategory) {
+                            card.style.display = 'block';
+                            // Reset transition delay so they load instantly after tab click
+                            card.style.transitionDelay = '0s';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Trigger reflow
+                    void menuGrid.offsetWidth;
+
+                    // Fade in
+                    menuGrid.style.opacity = '1';
+                }, 400); // matches the 0.4s CSS transition
+            });
+        });
 
         // TASK 4, 5, 6, 7: Intersection Observers for layout animations
         const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
