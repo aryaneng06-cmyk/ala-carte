@@ -484,10 +484,9 @@
             width: 100%;
             aspect-ratio: 3/4;
             border: 2px solid var(--border-gold);
-            background: linear-gradient(135deg, var(--bg-main), var(--bg-sec));
             box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.08);
             position: relative;
-            background-image: url('https://images.unsplash.com/photo-1583394838036-ac0f92b74058?auto=format&fit=crop&w=800&q=80');
+            background-image: url('https://images.unsplash.com/photo-1583394838036-ac0f92b74058?auto=format&fit=crop&w=800&q=80'), linear-gradient(135deg, var(--bg-main), var(--bg-sec));
             background-size: cover;
             background-position: center;
             filter: grayscale(20%);
@@ -1177,131 +1176,95 @@
         }
 
         /* =========================================
-       TASK 13: SUPABASE MODAL
+       TASK 13: SUPABASE MODAL (Reverted)
        ========================================= */
-        #auth-overlay {
+        .modal-overlay {
+            display: none;
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+            z-index: 2000;
         }
 
-        #auth-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .auth-modal {
+        .modal {
             background: var(--bg-main);
-            width: 90%;
-            max-width: 450px;
             padding: 3rem;
-            border: 1px solid var(--border-gold);
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="dark"] .auth-tabs {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .auth-tab {
-            flex: 1;
+            max-width: 450px;
+            width: 90%;
             text-align: center;
-            padding: 1rem 0;
-            cursor: pointer;
-            font-size: 1.2rem;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .modal h3 {
             font-family: var(--font-head);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--text-main);
-            opacity: 0.6;
-            transition: all 0.3s;
+            font-style: italic;
         }
 
-        .auth-tab.active {
-            opacity: 1;
-            border-bottom: 2px solid var(--text-gold);
-            color: var(--text-gold);
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            opacity: 0.8;
+            font-size: 1.1rem;
         }
 
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .auth-form input {
+        .modal input {
+            width: 100%;
             padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             font-family: var(--font-body);
             font-size: 1.1rem;
-            background: var(--bg-sec);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            color: var(--text-main);
             outline: none;
+            background: var(--bg-sec);
+            color: var(--text-main);
         }
 
-        [data-theme="dark"] .auth-form input {
+        [data-theme="dark"] .modal input {
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .auth-form input:focus {
+        .modal input:focus {
             border-color: var(--text-gold);
         }
 
-        .auth-form button {
-            padding: 1.2rem;
-            background: var(--text-gold);
+        .modal button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--text-gold);
             color: #fff;
             border: none;
-            font-size: 1.2rem;
             font-family: var(--font-head);
+            font-size: 1.2rem;
             cursor: pointer;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
         }
 
-        .auth-msg {
-            text-align: center;
-            font-style: italic;
-            font-size: 1.1rem;
+        .modal button:hover {
+            background-color: #b5953f;
         }
 
-        .msg-success {
-            color: var(--text-gold);
-        }
-
-        .msg-error {
-            color: var(--error);
-        }
-
-        .forgot-link {
-            text-align: right;
-            font-size: 0.9rem;
-            color: var(--text-main);
+        .modal-close-btn {
+            margin-top: 1rem;
+            background: none !important;
+            color: var(--text-main) !important;
+            border: none !important;
+            text-transform: none !important;
+            font-family: var(--font-body) !important;
+            font-size: 1rem !important;
             cursor: pointer;
+            letter-spacing: 0 !important;
             opacity: 0.8;
         }
 
@@ -1698,14 +1661,32 @@
         </div>
     </footer>
 
-    <!-- TASK 13: SUPABASE LOGIN MODAL -->
-    <div id="auth-overlay">
-        <div class="auth-modal">
-            <div class="modal-close" id="modal-close">&times;</div>
-            <div class="auth-tabs">
-                <div class="auth-tab active" data-tab="login">Login</div>
-                <div class="auth-tab" data-tab="signup">Sign Up</div>
-            </div>
+    <!-- TASK 13: SUPABASE LOGIN MODAL (Reverted) -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <h3>Login / Sign Up</h3>
+            <p>Enter your email to receive a secure magic link to sign in.</p>
+            <input type="email" id="authEmail" placeholder="Email Address" required>
+            <button id="authSubmit">Send Magic Link</button>
+
+            <div style="margin: 1.5rem 0; color: #666; font-style: italic;">— OR —</div>
+
+            <!-- Google Sign In Button -->
+            <button id="googleAuthBtn"
+                style="background-color: var(--bg-sec); color: var(--text-main); border: 1px solid rgba(0,0,0,0.1); margin-bottom: 1rem;">
+                <span style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z" />
+                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.2-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+                    </svg>
+                    Continue with Google
+                </span>
+            </button>
+            <button class="modal-close-btn" id="closeModal">Cancel</button>
+        </div>
+    </div>
             <!-- Login Form -->
             <form id="form-login" class="auth-form active">
                 <input type="email" placeholder="Email" required>
@@ -1844,42 +1825,107 @@
             });
         });
 
-        // TASK 13: Supabase Modal Logic
-        const loginBtn = document.getElementById('nav-login-btn');
-        const overlay = document.getElementById('auth-overlay');
-        const closeBtn = document.getElementById('modal-close');
-        const tabs = document.querySelectorAll('.auth-tab');
-        const forms = document.querySelectorAll('.auth-form');
+        // TASK 13: Supabase Modal Logic (Reverted)
+        try {
+            if (typeof window.supabase === 'undefined') {
+                console.error("Supabase library failed to load. Check your internet or adblocker.");
+            } else {
+                const supabaseUrl = 'https://icwphqnpdnlexikjprww.supabase.co';
+                const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imljd3BocW5wZG5sZXhpa2pwcnd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NTQ0NjAsImV4cCI6MjA4NzMzMDQ2MH0.G45UmmCSqCHyIFYoKvOK-FLVJvXjnGBXz6JM6O3Q-vI';
+                const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-        loginBtn.addEventListener('click', (e) => { e.preventDefault(); overlay.classList.add('active'); navMenu.classList.remove('active'); });
-        closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
-        overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('active'); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('active'); });
+                const authModal = document.getElementById('authModal');
+                const loginBtn = document.getElementById('nav-login-btn');
+                const closeModal = document.getElementById('closeModal');
+                const authSubmit = document.getElementById('authSubmit');
+                const authEmail = document.getElementById('authEmail');
+                const googleAuthBtn = document.getElementById('googleAuthBtn');
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                forms.forEach(f => f.classList.remove('active'));
-                tab.classList.add('active');
-                document.getElementById(`form-${tab.dataset.tab}`).classList.add('active');
-            });
-        });
+                if (loginBtn && authModal) {
+                    supabaseClient.auth.getSession().then(({ data: { session } }) => {
+                        if (session) loginBtn.textContent = 'Sign Out';
+                    });
 
-        document.getElementById('form-login').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const msg = document.getElementById('login-msg');
-            msg.textContent = "Attempting to login...";
-            msg.className = "auth-msg msg-success";
-            setTimeout(() => { msg.textContent = "Successfully logged in!"; }, 1500);
-        });
+                    supabaseClient.auth.onAuthStateChange((event, session) => {
+                        if (event === 'SIGNED_IN' || session) {
+                            loginBtn.textContent = 'Sign Out';
+                            authModal.style.display = 'none';
+                        } else if (event === 'SIGNED_OUT' || !session) {
+                            loginBtn.textContent = 'Login';
+                        }
+                    });
 
-        document.getElementById('form-signup').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const msg = document.getElementById('signup-msg');
-            msg.textContent = "Creating account...";
-            msg.className = "auth-msg msg-success";
-            setTimeout(() => { msg.textContent = "Account created! Please check your email."; }, 1500);
-        });
+                    loginBtn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        const { data: { session } } = await supabaseClient.auth.getSession();
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.getElementById('nav-menu');
+                        if(navMenu) navMenu.classList.remove('active');
+
+                        if (session) {
+                            await supabaseClient.auth.signOut();
+                            alert('You have been logged out.');
+                        } else {
+                            authModal.style.display = 'flex'; // Show modal
+                        }
+                    });
+
+                    closeModal.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        authModal.style.display = 'none';
+                    });
+
+                    if (googleAuthBtn) {
+                        googleAuthBtn.addEventListener('click', async (e) => {
+                            e.preventDefault();
+                            const originalText = googleAuthBtn.innerHTML;
+                            googleAuthBtn.innerHTML = 'Redirecting...';
+
+                            const { data, error } = await supabaseClient.auth.signInWithOAuth({
+                                provider: 'google',
+                                options: {
+                                    redirectTo: window.location.origin + window.location.pathname
+                                }
+                            });
+
+                            if (error) {
+                                alert('Error with Google Sign In: ' + error.message);
+                                googleAuthBtn.innerHTML = originalText;
+                            }
+                        });
+                    }
+
+                    authSubmit.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        const email = authEmail.value;
+                        if (!email) {
+                            alert('Please enter a valid email address.');
+                            return;
+                        }
+
+                        const originalText = authSubmit.textContent;
+                        authSubmit.textContent = 'Sending...';
+
+                        const { error } = await supabaseClient.auth.signInWithOtp({
+                            email: email,
+                        });
+
+                        if (error) {
+                            alert('Error sending login link: ' + error.message);
+                            authSubmit.textContent = originalText;
+                        } else {
+                            alert('Success! Check your email for the secure magic link to log in.');
+                            authModal.style.display = 'none';
+                            authSubmit.textContent = originalText;
+                            authEmail.value = '';
+                        }
+                    });
+                }
+            }
+        } catch (err) {
+            console.error("Supabase Initialization Error: ", err);
+        }
 
         // TASK 14: Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
