@@ -482,13 +482,12 @@
 
         .placeholder-chef-image {
             width: 100%;
+            height: auto;
             aspect-ratio: 3/4;
+            object-fit: cover;
             border: 2px solid var(--border-gold);
             box-shadow: 8px 8px 30px rgba(0, 0, 0, 0.08);
             position: relative;
-            background-image: url('https://images.unsplash.com/photo-1583394838036-ac0f92b74058?auto=format&fit=crop&w=800&q=80'), linear-gradient(135deg, var(--bg-main), var(--bg-sec));
-            background-size: cover;
-            background-position: center;
             filter: grayscale(20%);
         }
 
@@ -1399,7 +1398,8 @@
     <!-- TASK 4: ABOUT SECTION -->
     <section id="about" class="container">
         <div class="about-grid">
-            <div class="placeholder-chef-image slide-left" alt="Chef preparing fine french food"></div>
+            <img src="https://images.unsplash.com/photo-1583394838036-ac0f92b74058?auto=format&fit=crop&w=800&q=80"
+                class="placeholder-chef-image slide-left" alt="Chef preparing fine french food">
             <div class="about-text slide-right">
                 <h2 class="draw-line">Our Story</h2>
                 <p>Welcome to a sanctuary where taste and atmosphere intertwine seamlessly. At À la Carté, we believe
