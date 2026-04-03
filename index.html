@@ -1656,7 +1656,7 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             color: var(--text-main);
         }
-    </style>
+    </style>\n    <link rel="stylesheet" href="./css/enhancements.css">
 </head>
 
 <body>
@@ -1673,10 +1673,10 @@
         <nav>
             <ul id="nav-menu">
                 <li><a href="#hero">Home</a></li>
-                <li><a href="#about">Our Story</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reservations">Reservations</a></li>
-                <li><button class="btn-login" id="nav-login-btn">Login</button></li>
+                <li><a href="#about" class="lang-translate-target" data-en="Our Story" data-fr="Notre Histoire">Our Story</a></li>
+                <li><a href="#menu" class="lang-translate-target" data-en="Menu" data-fr="Menu">Menu</a></li>
+                <li><a href="#reservations" class="lang-translate-target" data-en="Reservations" data-fr="Réservations">Reservations</a></li>
+                <li><button class="btn-login lang-translate-target" id="nav-login-btn" data-en="Login" data-fr="Connexion">Login</button></li>
             </ul>
         </nav>
     </header>
@@ -1689,7 +1689,7 @@
                 <span id="typewriter-text"></span>
             </div>
             <div class="fleur-anim">⚜</div>
-            <a href="#menu"><button class="btn-gold-pulse">Discover Our Menu</button></a>
+            <a href="#menu"><button class="btn-gold-pulse lang-translate-target" data-en="Discover Our Menu" data-fr="Découvrir Notre Menu">Discover Our Menu</button></a>
         </div>
     </section>
 
@@ -1699,7 +1699,7 @@
             <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80"
                 class="placeholder-chef-image" alt="Chef preparing fine french food">
             <div class="about-text slide-right">
-                <h2 class="draw-line">Our Story</h2>
+                <h2 class="draw-line lang-translate-target" data-en="Our Story" data-fr="Notre Histoire">Our Story</h2>
                 <p>Welcome to a sanctuary where taste and atmosphere intertwine seamlessly. At À la Carté, we believe
                     every meal is a symphony of flavors, crafted with passion and precision.</p>
                 <p>Nestled in the heart of culinary tradition, our philosophy marries timeless Parisian elegance with
@@ -1714,13 +1714,13 @@
 
     <!-- TASK 5: CULINARY CREATIONS -->
     <section id="menu" class="container fade-up">
-        <h2 class="draw-line">Our Creations</h2>
+        <h2 class="draw-line lang-translate-target" data-en="Our Creations" data-fr="Nos Créations">Our Creations</h2>
 
         <!-- MENU TABS -->
         <div class="menu-tabs">
-            <button class="menu-tab active" data-target="entrees">Entrées</button>
-            <button class="menu-tab" data-target="plats">Plats Principaux</button>
-            <button class="menu-tab" data-target="desserts">Desserts</button>
+            <button class="menu-tab active lang-translate-target" data-target="entrees" data-en="Starters" data-fr="Entrées">Entrées</button>
+            <button class="menu-tab lang-translate-target" data-target="plats" data-en="Main Courses" data-fr="Plats Principaux">Plats Principaux</button>
+            <button class="menu-tab lang-translate-target" data-target="desserts" data-en="Desserts" data-fr="Desserts">Desserts</button>
         </div>
 
         <div class="menu-grid" id="menu-grid">
@@ -1781,7 +1781,7 @@
                 <div class="chef-img-box" role="img" aria-label="Chef Antoine Dubois"></div>
             </div>
             <div class="chef-text slide-right">
-                <h2>Meet the Chef</h2>
+                <h2 class="lang-translate-target" data-en="Meet the Chef" data-fr="Notre Chef">Meet the Chef</h2>
                 <h3>Chef Antoine Dubois</h3>
                 <p>Born in Lyon, the gastronomy capital of the world, Chef Antoine brings three decades of
                     Michelin-starred expertise back to the roots of honest, deeply flavorful French cooking. His
@@ -1793,7 +1793,7 @@
 
     <!-- TASK 7: WINE PAIRING -->
     <section id="wine" class="container fade-up">
-        <h2 class="draw-line">Wine & Food Pairings</h2>
+        <h2 class="draw-line lang-translate-target" data-en="Wine & Food Pairings" data-fr="Accords Mets & Vins">Wine & Food Pairings</h2>
         <div class="wine-grid">
             <div class="wine-card">
                 <div class="wine-icon">🍷</div>
@@ -1856,34 +1856,34 @@
 
     <!-- TASK 9: RESERVATIONS -->
     <section id="reservations" class="container fade-up">
-        <h2 class="draw-line">Reserve A Table</h2>
+        <h2 class="draw-line lang-translate-target" data-en="Reserve A Table" data-fr="Réserver une Table">Reserve A Table</h2>
         <!-- CONNECT TO YOUR BOOKING SYSTEM HERE -->
         <form class="rsvp-form" id="rsvp-form">
             <div class="input-group">
                 <input type="text" id="r_name" required>
-                <label for="r_name">Full Name</label>
+                <label for="r_name" class="lang-translate-target" data-en="Full Name" data-fr="Nom Complet">Full Name</label>
             </div>
             <div class="input-group">
                 <input type="email" id="r_email" required>
-                <label for="r_email">Email Address</label>
+                <label for="r_email" class="lang-translate-target" data-en="Email Address" data-fr="Adresse Email">Email Address</label>
             </div>
             <div class="input-group">
                 <input type="date" id="r_date" required>
-                <label for="r_date" style="top:-15px; font-size:0.9rem; color: var(--text-gold);">Date</label>
+                <label for="r_date" style="top:-15px; font-size:0.9rem; color: var(--text-gold);" class="lang-translate-target" data-en="Date" data-fr="Date">Date</label>
             </div>
             <div class="input-group">
                 <input type="time" id="r_time" required>
-                <label for="r_time" style="top:-15px; font-size:0.9rem; color: var(--text-gold);">Time</label>
+                <label for="r_time" style="top:-15px; font-size:0.9rem; color: var(--text-gold);" class="lang-translate-target" data-en="Time" data-fr="Heure">Time</label>
             </div>
             <div class="input-group">
                 <input type="number" id="r_guests" min="1" max="12" required>
-                <label for="r_guests">Number of Guests</label>
+                <label for="r_guests" class="lang-translate-target" data-en="Number of Guests" data-fr="Nombre de Convives">Number of Guests</label>
             </div>
             <div class="input-group full">
                 <textarea id="r_requests" rows="2" required></textarea>
-                <label for="r_requests">Special Requests</label>
+                <label for="r_requests" class="lang-translate-target" data-en="Special Requests" data-fr="Demandes Spéciales">Special Requests</label>
             </div>
-            <button type="submit" class="btn-submit">Request Reservation</button>
+            <button type="submit" class="btn-submit lang-translate-target" data-en="Request Reservation" data-fr="Réserver">Request Reservation</button>
         </form>
     </section>
 
@@ -1913,16 +1913,16 @@
                 </ul>
                 <table class="hours-table">
                     <tr>
-                        <td>Monday - Thursday</td>
+                        <td class="lang-translate-target" data-en="Monday - Thursday" data-fr="Lundi - Jeudi">Monday - Thursday</td>
                         <td>18:00 - 23:00</td>
                     </tr>
                     <tr>
-                        <td>Friday - Saturday</td>
+                        <td class="lang-translate-target" data-en="Friday - Saturday" data-fr="Vendredi - Samedi">Friday - Saturday</td>
                         <td>18:00 - 00:00</td>
                     </tr>
                     <tr>
                         <td>Sunday</td>
-                        <td>Closed</td>
+                        <td class="lang-translate-target" data-en="Closed" data-fr="Fermé">Closed</td>
                     </tr>
                 </table>
             </div>
@@ -1951,9 +1951,9 @@
                 <div class="footer-col" style="text-align: center;">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">Our Story</a></li>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#reservations">Reservations</a></li>
+                        <li><a href="#about" class="lang-translate-target" data-en="Our Story" data-fr="Notre Histoire">Our Story</a></li>
+                        <li><a href="#menu" class="lang-translate-target" data-en="Menu" data-fr="Menu">Menu</a></li>
+                        <li><a href="#reservations" class="lang-translate-target" data-en="Reservations" data-fr="Réservations">Reservations</a></li>
                         <li><a href="#chef">The Chef</a></li>
                     </ul>
                 </div>
@@ -2356,6 +2356,6 @@
 
     </script>
     <!-- TASK 15: PASTE YOUR GOOGLE ANALYTICS SCRIPT HERE -->
-</body>
+    <script src="./js/enhancements.js"></script>\n</body>
 
 </html>
