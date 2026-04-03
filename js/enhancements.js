@@ -434,6 +434,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.showToast({type:'error', title:'Date invalide', message:'Veuillez choisir une date et heure valides.', duration:4000});
             } else {
                 const n = rGuests.value, d = rDate.value, t = rTime.value;
+                const name = document.getElementById('r_name').value;
+                const email = document.getElementById('r_email').value;
+                const requests = document.getElementById('r_requests')?.value || '';
+                
+                fetch('https://hooks.zapier.com/hooks/catch/26220360/ucvlyhf/', {
+                    method: 'POST',
+                    body: JSON.stringify({ type: 'Reservation', name, email, date: d, time: t, guests: n, requests })
+                }).catch(console.error);
+                
                 window.showToast({type:'success', title:'Demande envoyée', message:`Nous confirmerons votre table pour ${n} personne(s) le ${d} à ${t}.`, duration:5000});
                 rsvpForm.reset();
                 updateStatus();
@@ -717,6 +726,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Subscriptions
     document.querySelector('form.news-form').addEventListener('submit', (e) => {
         e.preventDefault();
+        const email = e.target.querySelector('input[type="email"]').value;
+        
+        fetch('https://hooks.zapier.com/hooks/catch/26220360/ucvlyhf/', {
+            method: 'POST',
+            body: JSON.stringify({ type: 'Newsletter', email })
+        }).catch(console.error);
+        
         window.showToast({type: 'success', title: 'Bienvenue', message: 'Vous recevrez bientôt nos menus.', duration: 4000});
         e.target.reset();
     });
