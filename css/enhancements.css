@@ -67,8 +67,8 @@
     top: 1rem;
     right: 1rem;
     background: rgba(0,0,0,0.5);
-    color: var(--text-main, #fff);
-    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-main);
+    border: 1px solid color-mix(in srgb, var(--text-main) 20%, transparent);
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -101,7 +101,7 @@
 .modal-dish-name {
     font-family: var(--font-head, serif);
     font-size: 2rem;
-    color: var(--text-main, #fff);
+    color: var(--text-main);
     margin-bottom: 0.2rem;
 }
 
@@ -120,7 +120,7 @@
 
 .modal-description {
     font-size: 1rem;
-    color: rgba(255,255,255,0.7);
+    color: color-mix(in srgb, var(--text-main) 70%, transparent);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -134,7 +134,7 @@
 
 .modal-ingredients, .modal-wine-note {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.6);
+    color: color-mix(in srgb, var(--text-main) 60%, transparent);
     margin-bottom: 1rem;
 }
 
@@ -149,7 +149,7 @@
     padding: 0.15rem 0.6rem;
     border-radius: 999px;
     font-size: 0.75rem;
-    background: rgba(255,255,255,0.1);
+    background: color-mix(in srgb, var(--text-main) 10%, transparent);
 }
 .allergen-Gluten-Free, .allergen-Gluten { background: rgba(232, 163, 37, 0.2); color: #e8a325; }
 .allergen-Dairy, .allergen-Eggs { background: rgba(76, 175, 130, 0.2); color: #4caf82; }
@@ -157,7 +157,7 @@
 
 .modal-wine-name {
     font-style: italic;
-    color: var(--text-main, #fff);
+    color: var(--text-main);
     margin-bottom: 0.2rem;
     display: block;
 }
@@ -167,7 +167,7 @@
     width: 100%;
     padding: 1rem;
     background: linear-gradient(180deg, rgba(201, 169, 110, 0.85) 0%, rgba(180, 140, 80, 1) 100%);
-    color: #fff;
+    color: var(--text-main);
     border: none;
     border-radius: 4px;
     font-family: var(--font-head);
@@ -243,10 +243,10 @@
 
 .filter-pill {
     font-size: 0.75rem; letter-spacing: 0.08em; padding: 0.4rem 1rem; border-radius: 999px;
-    background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5);
+    background: transparent; border: 1px solid color-mix(in srgb, var(--text-main) 15%, transparent); color: color-mix(in srgb, var(--text-main) 50%, transparent);
     cursor: pointer; transition: all 200ms ease; text-transform: uppercase;
 }
-.filter-pill:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
+.filter-pill:hover { border-color: color-mix(in srgb, var(--text-main) 40%, transparent); color: color-mix(in srgb, var(--text-main) 80%, transparent); }
 .filter-pill.active {
     border-color: #c9a96e; color: #c9a96e; background: rgba(201,169,110,0.08);
 }
@@ -263,7 +263,7 @@
     position: absolute; bottom: 10px; left: 10px; display: flex; gap: 4px; pointer-events: none; z-index: 5;
 }
 .card-badge {
-    background: rgba(0,0,0,0.65); color: #fff; font-size: 11px; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.65); color: var(--text-main); font-size: 11px; padding: 2px 6px; border-radius: 4px; border: 1px solid color-mix(in srgb, var(--text-main) 10%, transparent);
 }
 .dish-img-placeholder { position: relative; } /* Ensure absolute badges respect image bounds */
 
@@ -310,8 +310,8 @@
 .status-content-inner {
     transition: opacity 150ms ease;
 }
-.status-headline { color: #fff; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; }
-.status-subline { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+.status-headline { color: var(--text-main); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; }
+.status-subline { color: color-mix(in srgb, var(--text-main) 60%, transparent); font-size: 0.8rem; }
 
 
 /* 6. Testimonial Carousel */
@@ -336,7 +336,7 @@
     font-family: var(--font-head, serif); font-size: 6rem; color: #c9a96e; line-height: 0.5; align-self: flex-start; margin-left: -2rem; opacity: 0.5;
 }
 .testimonial-new-text {
-    font-size: 1.25rem; line-height: 1.8; color: var(--text-main, #fff); font-style: italic; text-align: center; font-family: var(--font-body, serif); margin-bottom: 2rem;
+    font-size: 1.25rem; line-height: 1.8; color: var(--text-main); font-style: italic; text-align: center; font-family: var(--font-body, serif); margin-bottom: 2rem;
 }
 .testimonial-new-author {
     font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: #c9a96e; display: flex; align-items: center; gap: 0.5rem;
@@ -417,10 +417,10 @@
 
 .toast-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
 .toast-title-wrap { display: flex; align-items: center; gap: 8px; }
-.toast-title { font-size: 0.9rem; font-weight: 500; color: #fff; }
+.toast-title { font-size: 0.9rem; font-weight: 500; color: var(--text-main); }
 .toast-close { background: none; border: none; color: #888; cursor: pointer; transition: transform 150ms ease, color 150ms ease; font-size: 1.2rem; transform-origin: center; display: flex; align-items: center; padding: 0; }
-.toast-close:hover { color: #fff; transform: rotate(45deg); }
-.toast-body { font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.6); }
+.toast-close:hover { color: var(--text-main); transform: rotate(45deg); }
+.toast-body { font-size: 0.8rem; line-height: 1.6; color: color-mix(in srgb, var(--text-main) 60%, transparent); }
 
 .toast-progress {
     position: absolute; bottom: 0; left: 0; height: 3px; background: currentColor; width: 100%;
@@ -479,12 +479,12 @@
     display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; letter-spacing: 0.1em;
 }
 .lang-btn {
-    background: none; border: none; color: rgba(255,255,255,0.4); font-weight: 400; cursor: pointer; transition: all 150ms ease; padding: 0;
+    background: none; border: none; color: color-mix(in srgb, var(--text-main) 40%, transparent); font-weight: 400; cursor: pointer; transition: all 150ms ease; padding: 0;
 }
 .lang-btn.active {
-    color: var(--text-main, #fff); font-weight: 500;
+    color: var(--text-main); font-weight: 500;
 }
-.lang-divider { color: rgba(255,255,255,0.2); }
+.lang-divider { color: color-mix(in srgb, var(--text-main) 20%, transparent); }
 .lang-translate-target { transition: opacity 150ms ease; }
 .lang-translate-faded { opacity: 0 !important; }
 
