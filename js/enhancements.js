@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isMobile.matches) return;
         const scrollY = window.scrollY;
         if(scrollY > window.innerHeight) return;
-        if(heroImg) heroImg.style.transform = \`translateY(-\${scrollY * 0.45}px)\`;
-        if(heroContent) heroContent.style.transform = \`translateY(-\${scrollY * 0.3}px)\`;
+        if(heroImg) heroImg.style.transform = `translateY(-${scrollY * 0.45}px)`;
+        if(heroContent) heroContent.style.transform = `translateY(-${scrollY * 0.3}px)`;
     }
 
     // Hero Load Anim
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(t==='dairy-free') badges += '<span class="card-badge">DF</span>';
             });
             const imgWrap = card.querySelector('.dish-img-placeholder');
-            imgWrap.insertAdjacentHTML('beforeend', \`<div class="card-badges">\${badges}</div>\`);
+            imgWrap.insertAdjacentHTML('beforeend', `<div class="card-badges">${badges}</div>`);
         }
     });
 
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const visibles = entries.filter(e => e.isIntersecting).map(e => e.target);
         visibles.forEach((card, idx) => {
             const delay = Math.min(idx * 80, 400);
-            card.style.setProperty('--delay', \`\${delay}ms\`);
+            card.style.setProperty('--delay', `${delay}ms`);
             card.classList.add('card-visible');
             obs.unobserve(card);
         });
@@ -393,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(!dVal || !tVal) {
                     hTxt = "Vérifiez la disponibilité"; sTxt = "Sélectionnez une date et une heure pour voir les disponibilités."; dotCol = "#888";
                 } else {
-                    const dateObj = new Date(\`\${dVal}T\${tVal}\`);
+                    const dateObj = new Date(`${dVal}T${tVal}`);
                     const now = new Date();
                     const day = dateObj.getDay();
                     const h = dateObj.getHours(); m = dateObj.getMinutes();
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.showToast({type:'error', title:'Date invalide', message:'Veuillez choisir une date et heure valides.', duration:4000});
             } else {
                 const n = rGuests.value, d = rDate.value, t = rTime.value;
-                window.showToast({type:'success', title:'Demande envoyée', message:\`Nous confirmerons votre table pour \${n} personne(s) le \${d} à \${t}.\`, duration:5000});
+                window.showToast({type:'success', title:'Demande envoyée', message:`Nous confirmerons votre table pour ${n} personne(s) le ${d} à ${t}.`, duration:5000});
                 rsvpForm.reset();
                 updateStatus();
             }
@@ -451,15 +451,15 @@ document.addEventListener('DOMContentLoaded', () => {
             success: '✓', error: '✕', info: 'i', warning: '!'
         };
         const toast = document.createElement('div');
-        toast.className = \`res-toast toast-\${type}\`;
-        toast.innerHTML = \`
+        toast.className = `res-toast toast-${type}`;
+        toast.innerHTML = `
             <div class="toast-top">
-                <div class="toast-title-wrap"><span style="color:var(--text-main); font-weight:bold;">\${icons[type]}</span> <span class="toast-title">\${title}</span></div>
+                <div class="toast-title-wrap"><span style="color:var(--text-main); font-weight:bold;">${icons[type]}</span> <span class="toast-title">${title}</span></div>
                 <button class="toast-close">×</button>
             </div>
-            <div class="toast-body">\${message}</div>
-            <div class="toast-progress" style="animation-duration:\${duration}ms;"></div>
-        \`;
+            <div class="toast-body">${message}</div>
+            <div class="toast-progress" style="animation-duration:${duration}ms;"></div>
+        `;
         toastWrap.appendChild(toast);
         
         requestAnimationFrame(() => toast.classList.add('toast-enter'));
@@ -486,24 +486,24 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const testContainer = document.querySelector('#testimonials .container');
     if(testContainer) {
-        testContainer.innerHTML = \`
+        testContainer.innerHTML = `
             <div class="carousel-wrap-new" tabindex="0" role="region" aria-label="Testimonials">
                 <div id="testSlides"></div>
                 <div class="carousel-dots-new" id="testDots"></div>
             </div>
-        \`;
+        `;
         const wrap = document.querySelector('.carousel-wrap-new');
         const slideCon = document.getElementById('testSlides');
         const dotsCon = document.getElementById('testDots');
         
         testData.forEach((t, i) => {
-            slideCon.innerHTML += \`
-                <div class="testimonial-new \${i===0?'active':''}" aria-live="polite">
+            slideCon.innerHTML += `
+                <div class="testimonial-new ${i===0?'active':''}" aria-live="polite">
                     <div class="testimonial-new-quotes">"</div>
-                    <div class="testimonial-new-text">\${t.q}</div>
-                    <div class="testimonial-new-author">\${t.a}</div>
-                </div>\`;
-            dotsCon.innerHTML += \`<div class="dot-new \${i===0?'active':''}" data-idx="\${i}" aria-label="Testimonial \${i+1}"></div>\`;
+                    <div class="testimonial-new-text">${t.q}</div>
+                    <div class="testimonial-new-author">${t.a}</div>
+                </div>`;
+            dotsCon.innerHTML += `<div class="dot-new ${i===0?'active':''}" data-idx="${i}" aria-label="Testimonial ${i+1}"></div>`;
         });
         
         const testSlides = document.querySelectorAll('.testimonial-new');
@@ -592,7 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // So clicking the card scrolls AND opens modal? Let's just override to scroll if they click the card here, or use the modal Reserve logic.
                 // I will add a slight timeout to let modal open, or just let them read the modal. 
                 // Wait, I will prevent modal if they hold shift? No, I'll just scroll the background!
-                const w = document.querySelector(\`.wine-card[data-wine="\${pairings[slug]}"]\`);
+                const w = document.querySelector(`.wine-card[data-wine="${pairings[slug]}"]`);
                 if(w) {
                     w.scrollIntoView({behavior: 'smooth', block: 'center'});
                     setTimeout(() => w.classList.add('pairing-pulse'), 600);
@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
         translateTargets.forEach(el => {
             el.classList.add('lang-translate-faded');
             setTimeout(() => {
-                const val = el.getAttribute(\`data-\${lang}\`);
+                const val = el.getAttribute(`data-${lang}`);
                 if(val) {
                     if(el.tagName === 'INPUT' && el.type === 'text' || el.type === 'email') el.placeholder = val;
                     else el.textContent = val;
@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     progressBar.style.opacity = 1;
                     const max = document.documentElement.scrollHeight - window.innerHeight;
                     const pct = Math.min(100, Math.max(0, (scrollY / max) * 100));
-                    progressBar.style.width = \`\${pct}%\`;
+                    progressBar.style.width = `${pct}%`;
                     progressBar.setAttribute('aria-valuenow', Math.round(pct));
                 }
                 pTicking = false;
