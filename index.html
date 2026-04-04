@@ -17,6 +17,34 @@
     <meta property="og:url" content="https://alacarte.rest">
     <meta property="og:type" content="website">
 
+    <!-- TASK 15 EXTENSION: SEO & Canonical -->
+    <link rel="canonical" href="https://restraunt-r934.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À la Carté | L'art de bien manger">
+    <meta name="twitter:description" content="Experience timeless Parisian elegance combined with modern gastronomic artistry.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "À la Carté",
+      "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80",
+      "@id": "https://restraunt-r934.vercel.app/",
+      "url": "https://restraunt-r934.vercel.app/",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "15 Avenue Montaigne",
+        "addressLocality": "Paris",
+        "postalCode": "75008",
+        "addressCountry": "FR"
+      },
+      "menu": "https://restraunt-r934.vercel.app/#menu",
+      "servesCuisine": "French",
+      "acceptsReservations": "True"
+    }
+    </script>
+
     <!-- TASK 14: Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚜️</text></svg>">
@@ -222,7 +250,7 @@
             pointer-events: none;
         }
 
-        #loading-screen h1 {
+        #loading-screen .h1-loading {
             font-size: 4rem;
             color: var(--text-main);
             font-style: italic;
@@ -1664,7 +1692,7 @@
 
     <!-- TASK 1: LOADING SCREEN -->
     <div id="loading-screen">
-        <h1>À la Carté</h1>
+        <div class="h1-loading">À la Carté</div>
     </div>
 
     <!-- TASK 2: NAVIGATION BAR -->
@@ -1697,7 +1725,7 @@
     <!-- TASK 4: ABOUT SECTION -->
     <section id="about" class="container">
         <div class="about-grid">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80"
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80" alt="Exquisite culinary presentation with fresh ingredients"
                 class="placeholder-chef-image" alt="Chef preparing fine french food">
             <div class="about-text slide-right">
                 <h2 class="draw-line lang-translate-target" data-en="Our Story" data-fr="Notre Histoire">Our Story</h2>
@@ -1726,7 +1754,7 @@
 
         <div class="menu-grid" id="menu-grid">
             <div class="dish-card fade-up" data-category="entrees">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80" alt="Bouillabaisse seafood stew with provençal herbs"
                     alt="Bouillabaisse" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Bouillabaisse</h3>
                 <p class="dish-desc">A fragrant Provençal seafood stew bathed in saffron and fresh local herbs.</p>
@@ -1742,7 +1770,7 @@
             </div>
 
             <div class="dish-card fade-up" data-category="plats" style="transition-delay: 0.1s; display: none;">
-                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80"
+                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80" alt="Rustic Coq au Vin bathed in red wine reduction"
                     alt="Coq au Vin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Coq au Vin</h3>
                 <p class="dish-desc">Classic rustic chicken braised to perfection in rich Burgundian wine.</p>
@@ -1758,14 +1786,14 @@
             </div>
 
             <div class="dish-card fade-up" data-category="desserts" style="transition-delay: 0.2s; display: none;">
-                <img src="https://images.unsplash.com/photo-1472555794301-77353b152fb7?auto=format&fit=crop&w=800&q=80"
+                <img src="https://images.unsplash.com/photo-1472555794301-77353b152fb7?auto=format&fit=crop&w=800&q=80" alt="Classic French Crème Brûlée with caramelized sugar top"
                     alt="Crème Brûlée" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Crème Brûlée</h3>
                 <p class="dish-desc">Velvety vanilla bean custard beneath a delicate layer of caramelized sugar.</p>
                 <div class="dish-price">€18</div>
             </div>
             <div class="dish-card fade-up" data-category="desserts" style="transition-delay: 0.3s; display: none;">
-                <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80"
+                <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=800&q=80" alt="Warm Tarte Tatin upside-down apple pastry"
                     alt="Tarte Tatin" class="dish-img-placeholder" style="object-fit: cover; background: none;">
                 <h3>Tarte Tatin</h3>
                 <p class="dish-desc">An elegant upside-down caramelized apple pastry, served warm with a hint of
