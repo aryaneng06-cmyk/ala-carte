@@ -5,8 +5,8 @@
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px) url(#chromatic-glass);
+    -webkit-backdrop-filter: blur(8px) url(#chromatic-glass);
     z-index: 10000;
     display: flex;
     justify-content: center;
